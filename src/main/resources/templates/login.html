@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/HomeLayout}">
+<head>
+<title>Connexion</title>
+
+<body>
+<div layout:fragment="content">
+	<div class="container">
+		<!--  <img th:src="@{/images/login.jpg}" class="img-responsive center-block"
+			width="300" height="300" alt="Logo" />-->
+		<form th:action="@{/login}" method="POST" class="form-signin">
+			<h3 class="form-signin-heading" th:text="Welcome"></h3>
+			<br /> <input type="text" id="username" name="username"
+				th:placeholder="Username" class="form-control" /> <br /> <input
+				type="password" id="password" name="password"
+				th:placeholder="Password" class="form-control" /> <br />
+			<div align="center" th:if="${param.error}">
+				<p style="font-size: 20; color: #FF1C19;">Username ou Mot de
+					passe incorrect</p>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" name="Submit"
+				value="Login" type="Submit" th:text="Login"></button>
+		</form>
+	</div>
+	</div>
